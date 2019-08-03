@@ -1,0 +1,14 @@
+hooks:
+  after:my-plugin:bump: yarn dist
+  after:git:release: yarn release:web
+
+git:
+  tagName: v${version}
+github:
+  release: true
+  assets:
+  - dist/*-mac.zip
+  - dist/*-win.exe
+  - dist/*-linux.deb
+
+npm: false

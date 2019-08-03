@@ -1,0 +1,20 @@
+.lottery-setting {
+    min-width: 500px;
+}
+.lottery-setting header {
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+.lottery-setting input {
+    text-align: center;
+    border: none;
+    color: white;
+    border-bottom: dashed 1px #ded4d494;
+    background: rgba(255, 255, 255, 0);
+    outline: none;
+}
+
+.lottery-setting section.lottery-edit{
+    margin: 20px 0px;
+    height: 300px;
+}
