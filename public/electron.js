@@ -39,7 +39,7 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 1024, height: 768 });
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
   mainWindow.loadURL(`file://${path.join(__dirname, '../public/index.html')}`);
   mainWindow.on('closed', () => mainWindow = null);
   mainWindow.setAutoHideMenuBar(true);

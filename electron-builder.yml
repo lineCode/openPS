@@ -1,7 +1,7 @@
-appId: cn.wangbaiyuan.openps
+appId: cn.wangbaiyuan.openPS
 productName: openPS
 artifactName: ${name}-${version}-for-${os}.${ext}
-icon: build/icon.png
+icon: public/icon.png
 mac:
   target: zip
 win:
