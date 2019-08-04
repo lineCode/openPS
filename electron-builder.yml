@@ -1,10 +1,19 @@
 appId: cn.wangbaiyuan.openPS
 productName: openPS
-artifactName: ${name}-${version}-for-${os}.${ext}
+artifactName: '${name}-${version}-for-${os}-${arch}.${ext}'
 icon: public/icon.png
-mac:
-  target: zip
+nsis:
+  runAfterFinish: false
+  deleteAppDataOnUninstall: true
+  allowToChangeInstallationDirectory: true
+  oneClick: false
+  installerLanguages: zh_CN
+  language: '2052'
+  perMachine: true
+  createDesktopShortcut: true
 win:
-  target: portable
+  target: nsis
+mac:
+  target: dmg
 linux:
   target: deb

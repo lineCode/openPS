@@ -1,19 +1,19 @@
 {
-  "name": "openPS",
+  "name": "OpenPS",
   "version": "0.1.1",
   "main": "public/electron.js",
   "author": {
-    "name": "Geekeren",
+    "name": "Baiyuan Wang",
     "url": "http://wangbaiyuan.cn",
     "email": "wangbaiyuan@outlook.com"
   },
-  "description": "A lucky draw tool based on React, 基于React的炫酷的滚动抽奖程序",
+  "description": "A Photoshop destop version based on Electron",
   "repository": {
     "type": "git",
-    "url": "https://github.com/geekeren/Magpie-LuckyDraw.git"
+    "url": "https://github.com/geekeren/openPS.git"
   },
   "bugs": {
-    "url": "https://github.com/geekeren/Magpie-LuckyDraw/issues"
+    "url": "https://github.com/geekeren/openPS/issues"
   },
   "homepage": "./",
   "dependencies": {
@@ -31,6 +31,13 @@
     "electron-pack": "build -c.extraMetadata.main=public/electron.js",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "dist:app": "rm -rf dist && electron-builder -mwl",
+    "dist:linux": "electron-builder --linux --ia32 --x64",
+    "dist:linux32": "electron-builder --linux --ia32",
+    "dist:linux64": "electron-builder --linux --x64",
+    "dist:win": "electron-builder --win --ia32 --x64",
+    "dist:win32": "electron-builder --win --ia32",
+    "dist:win64": "electron-builder --win --x64",
+    "dist:mac": "CSC_IDENTITY_AUTO_DISCOVERY=false DEBUG=electron-builder electron-builder --platform darwin",
     "dist": "yarn dist:web && yarn dist:app",
     "release": "release-it"
   },
