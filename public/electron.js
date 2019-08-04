@@ -147,7 +147,6 @@ function createSplashWindow() {
 
 function onCreate() {
   createWindow();
-  mainWindow.show();
   createSplashWindow();
 }
 
