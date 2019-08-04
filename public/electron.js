@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain, shell } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, shell, Tray, nativeImage } = require('electron');
 const package = require('../package');
 const path = require('path');
 const template = [
@@ -97,7 +97,9 @@ if (process.platform == 'darwin') {
       {
         label: 'Quit',
         accelerator: 'Command+Q',
-        click() { app.quit(); }
+        click() {
+          app.quit();
+        }
       },
     ]
   });
@@ -106,6 +108,7 @@ if (process.platform == 'darwin') {
 
 let mainWindow;
 let splashWindow;
+let tray;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -149,13 +152,36 @@ function onCreate() {
   createWindow();
   createSplashWindow();
 }
+function toggleVisiable() {
+  var isVisible = mainWindow.isVisible();
+  if (isVisible) {
+    mainWindow.hide();
+  } else {
+    mainWindow.show();
+  }
+}
 
 ipcMain.on("ps", function (message, arg) {
   if(arg === "done" && splashWindow != null) {
     splashWindow.close();
     setTimeout(() => {
       mainWindow.show();
-    }, 200)
+      let image = nativeImage.createFromPath(path.join(__dirname, 'images/icon@2x.png'));
+      tray = new Tray(image);
+      const contextMenu = Menu.buildFromTemplate([
+        {
+          label: '显示/隐藏窗口', click() {
+            toggleVisiable();
+          }
+        },
+        {
+          label: '退出', click() {
+            app.quit();
+          }
+        },
+      ]);
+      tray.setContextMenu(contextMenu);
+    }, 400)
   }
 });
 app.commandLine.appendSwitch('js-flags', '--max-old-space-size=4096')

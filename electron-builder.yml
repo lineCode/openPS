@@ -17,3 +17,12 @@ mac:
   target: dmg
 linux:
   target: deb
+fileAssociations:
+  role: Editor
+  ext:
+    - psd
+    - png
+    - jpg
+    - jpeg
+    - ico
+    - pdf
