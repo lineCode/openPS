@@ -1,11 +1,10 @@
 <!doctype html>
-<html lang='zh-cn' xmlns="http://www.w3.org/1999/html">
+<html lang='zh-cn' xmlns="http://www.w3.org/1999/html" xmlns:>
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0'>
   <title>Open PS</title>
   <link rel='stylesheet' href='style/main.css'>
-  <link rel='stylesheet' href='style/loading.css'>
   <link rel='stylesheet' href='style/open-sans-font.css'>
   <style>
     h1 {
@@ -26,33 +25,36 @@
     }
 
     body {
-      background: black;
+      background: #474747;
+    }
+    .bg-img {
+      filter: grayscale(100%);
+      opacity: 0.7;
+      width: 80px;
+      align-self: center;
+      box-shadow: 2px 3px rgba(0, 0, 0, 0.05);
     }
   </style>
+
 </head>
 
 <body class='theme0'>
-<figure id="loading">
-  <div class="dot white"></div>
-  <div class="dot"></div>
-  <div class="dot"></div>
-  <div class="dot"></div>
-  <div class="dot"></div>
-</figure>
 <div id='cap' style='display:none;'></div>
 <div class='topfloat' style='display:none;'></div>
+<div style="display: flex; position: absolute;justify-content: center; width: 100%; height: 100%">
+  <img src="images/gray_icon.png" alt="" class="bg-img">
+</div>
 <script src='code/external/ext.js'></script>
 <script src='code/PIMG.js'></script>
 <script src='code/FNTS.js'></script>
 <script src='code/LNG.js'></script>
 <script>
-  function loadingDone() {
-    setTimeout(() => {
-      document.getElementById('loading').remove();
-    }, 2000);
-  }
-</script>
-<script id="ppScript" type="text/javascript" src="code/pp.js" onload="loadingDone()"></script>
+  require("./code/pp.js");
+  const { ipcRenderer } = require('electron');
+  window.parent = Object.assign({}, window);
+  window.parent.postMessage = function (message, targetOrigin, transfer) {
+    ipcRenderer.send("ps", message);
+  };
 </script>
 </body>
 </html>

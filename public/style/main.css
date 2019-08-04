@@ -78,6 +78,7 @@ body, button {
     color: #e6e6e6;
     text-shadow: none;
     line-height: 1.7em;
+    font-size: 10px;
 }
 
 .intro .labelitem {

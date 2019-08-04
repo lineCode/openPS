@@ -17,16 +17,16 @@
   },
   "homepage": "./",
   "dependencies": {
+    "pako": "^1.0.10"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "electron": "^5.0.3",
-    "electron-builder": "^20.43.0",
-    "release-it": "^12.3.0",
-    "wait-on": "^3.2.0"
+    "concurrently": "^4.1.1",
+    "electron": "^6.0.0",
+    "electron-builder": "^21.2.0",
+    "release-it": "^12.3.5",
+    "wait-on": "^3.3.0"
   },
   "scripts": {
-
     "start": "electron .",
     "electron-pack": "build -c.extraMetadata.main=public/electron.js",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
@@ -37,7 +37,7 @@
     "dist:win": "electron-builder --win --ia32 --x64",
     "dist:win32": "electron-builder --win --ia32",
     "dist:win64": "electron-builder --win --x64",
-    "dist:mac": "CSC_IDENTITY_AUTO_DISCOVERY=false DEBUG=electron-builder electron-builder --platform darwin",
+    "dist:mac": "CSC_IDENTITY_AUTO_DISCOVERY=false DEBUG=electron-builder electron-builder --mac",
     "dist": "yarn dist:web && yarn dist:app",
     "release": "release-it"
   },
