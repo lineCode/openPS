@@ -7,8 +7,8 @@ git:
 github:
   release: true
   assets:
-  - dist/*-mac.dmg
-  - dist/*-win.exe
-  - dist/*-linux.deb
+  - dist/*.dmg
+  - dist/*.exe
+  - dist/*.deb
 
-npm: false
+npm: true

@@ -39,8 +39,8 @@
     "dist:win32": "electron-builder --win --ia32",
     "dist:win64": "electron-builder --win --x64",
     "dist:mac": "CSC_IDENTITY_AUTO_DISCOVERY=false DEBUG=electron-builder electron-builder --mac",
-    "dist": "yarn dist:web && yarn dist:app",
-    "release": "release-it"
+    "dist": "yarn dist:app",
+    "release": "release-it --no-npm.publish"
   },
   "bin": {
     "magpie": "./cli.js"
