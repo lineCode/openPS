@@ -1,6 +1,6 @@
 hooks:
   after:my-plugin:bump: yarn dist
-  after:git:release: yarn release:web
+#  after:git:release: yarn release:web
 
 git:
   tagName: v${version}
