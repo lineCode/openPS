@@ -1,5 +1,5 @@
 hooks:
-  after:my-plugin:bump: yarn dist
+  after:bump: yarn dist
 #  after:git:release: yarn release:web
 
 git:
