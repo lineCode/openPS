@@ -1,6 +1,6 @@
 {
   "name": "open-ps",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "main": "public/electron.js",
   "author": {
     "name": "Baiyuan Wang",
@@ -31,7 +31,7 @@
     "start": "electron .",
     "electron-pack": "build -c.extraMetadata.main=public/electron.js",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "dist:app": "electron-builder -mwl",
+    "dist:app": "rm -rf dist && electron-builder -mwl",
     "dist:linux": "electron-builder --linux --ia32 --x64",
     "dist:linux32": "electron-builder --linux --ia32",
     "dist:linux64": "electron-builder --linux --x64",
