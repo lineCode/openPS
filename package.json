@@ -1,6 +1,6 @@
 {
   "name": "open-ps",
-  "version": "0.1.1",
+  "version": "1.0.0-0",
   "main": "public/electron.js",
   "author": {
     "name": "Baiyuan Wang",
