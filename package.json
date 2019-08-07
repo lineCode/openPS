@@ -1,5 +1,5 @@
 {
-  "name": "OpenPS",
+  "name": "open-ps",
   "version": "0.1.1",
   "main": "public/electron.js",
   "author": {
