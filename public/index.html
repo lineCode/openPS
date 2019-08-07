@@ -49,12 +49,17 @@
 <script src='code/FNTS.js'></script>
 <script src='code/LNG.js'></script>
 <script>
+  var UTIF  = require("utif/UTIF");
   require("./code/pp.js");
   const { ipcRenderer } = require('electron');
   window.parent = Object.assign({}, window);
   window.parent.postMessage = function (message, targetOrigin, transfer) {
     ipcRenderer.send("ps", message);
   };
+  window.onbeforeunload = confirmExit;
+  function confirmExit() {
+    return "You have attempted to leave this page. Are you sure?";
+  }
 </script>
 </body>
 </html>

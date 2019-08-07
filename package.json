@@ -17,7 +17,8 @@
   },
   "homepage": "./",
   "dependencies": {
-    "pako": "^1.0.10"
+    "pako": "^1.0.10",
+    "utif": "^3.1.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.1",
@@ -30,7 +31,7 @@
     "start": "electron .",
     "electron-pack": "build -c.extraMetadata.main=public/electron.js",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "dist:app": "rm -rf dist && electron-builder -mwl",
+    "dist:app": "electron-builder -mwl",
     "dist:linux": "electron-builder --linux --ia32 --x64",
     "dist:linux32": "electron-builder --linux --ia32",
     "dist:linux64": "electron-builder --linux --x64",

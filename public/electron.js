@@ -152,17 +152,17 @@ function onCreate() {
   createWindow();
   createSplashWindow();
 }
-function toggleVisiable() {
-  var isVisible = mainWindow.isVisible();
-  if (isVisible) {
-    mainWindow.hide();
-  } else {
-    mainWindow.show();
+
+function showMainWindow() {
+  if (mainWindow === null) {
+    createWindow();
   }
+  mainWindow.show();
+  mainWindow.focus();
 }
 
 ipcMain.on("ps", function (message, arg) {
-  if(arg === "done" && splashWindow != null) {
+  if (arg === "done" && splashWindow != null) {
     splashWindow.close();
     setTimeout(() => {
       mainWindow.show();
@@ -170,8 +170,8 @@ ipcMain.on("ps", function (message, arg) {
       tray = new Tray(image);
       const contextMenu = Menu.buildFromTemplate([
         {
-          label: '显示/隐藏窗口', click() {
-            toggleVisiable();
+          label: '显示窗口', click() {
+            showMainWindow();
           }
         },
         {
@@ -181,21 +181,32 @@ ipcMain.on("ps", function (message, arg) {
         },
       ]);
       tray.setContextMenu(contextMenu);
+      // tray.on('click', () => {
+      //
+      // })
     }, 400)
   }
 });
+
+ipcMain.on('get-file-data', function (event) {
+  var data = null
+  if (process.platform == 'win32' && process.argv.length >= 2) {
+    var openFilePath = process.argv[1]
+    data = openFilePath
+  }
+  console.log(data);
+  event.returnValue = data
+});
+
 app.commandLine.appendSwitch('js-flags', '--max-old-space-size=4096')
 app.on('ready', onCreate);
 
 app.on('window-all-closed', () => {
-  // if (process.platform !== 'darwin') {
-  app.quit();
-  // }
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
-  mainWindow.show();
+  showMainWindow();
 });
