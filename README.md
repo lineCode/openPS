@@ -2,7 +2,6 @@
 
 [![Github Release](https://img.shields.io/github/release/geekeren/openPS.svg)](https://github.com/geekeren/openPS/releases)
 [![Github Release Downloads](https://img.shields.io/github/downloads/geekeren/openPS/total.svg)](https://github.com/geekeren/openPS/releases)
-
 [![Github Release Downloads](https://img.shields.io/badge/Platforms-win%7Cmac%7Clinux%7Cdocker%7Cweb-red.svg)](https://github.com/geekeren/openPS/releases)
 [![License](https://img.shields.io/github/license/geekeren/openPS.svg)](https://github.com/geekeren/openPS/blob/master/LICENSE)
 
