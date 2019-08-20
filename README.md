@@ -27,7 +27,7 @@ openPS是一款基于Electron打包的photopea桌面客户端，可以满足工�
 
 
 ## 二、预览
-![预览](assets/image/drawing.gif)
+![预览](assets/image/preview.png)
 
 ## 三、关注与交流
 
