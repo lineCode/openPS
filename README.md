@@ -30,7 +30,7 @@ openPS是一款基于Electron打包的photopea桌面客户端，可以满足工�
 
 ## 三、关注与交流
 
-目前这个项目只有@geekeren一个人在维护，本着“人人享受，人人奉献”的开源精神和“社区靠大家”的号召，或者你发现代码写得太挫想重构，欢迎更多的同学提issue和pull request成为项目的参与者, 让Magpie更加完善😜😜😜。
+目前这个项目只有@geekeren一个人在维护，本着“人人享受，人人奉献”的开源精神和“社区靠大家”的号召，或者你发现代码写得太挫想重构，欢迎更多的同学提issue和pull request成为项目的参与者, 让openPS更加完善😜😜😜。
 
 <div style="text-align:center">
 <h4>关注我的微信<h4>
